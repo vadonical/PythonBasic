@@ -1,4 +1,4 @@
-# About tornado
+# About Tornado
 
 - FriendFeed is a relatively simple non-blocking Web server written in Python. The Web framework used by its applications looks a bit like web.py or Google's webapp, but the Web framework also contains some useful tools and optimizations to make effective use of non-blocking server environments.
 
