@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ static_url('css/style.css') }}">
+    <title>{{ page.title }}</title>
+</head>
+<body>
+<div id="container">
+    <header>{% block header %}<h1>这是头部的block</h1>{% end }</header>
+    <div id="main">
+        <div id="content">
+            {% block body %} <h1>这是内容的block</h1>{% end %}
+        </div>
+    </div>
+    <footer>{% block footer %}<p>这是尾部的block</p></footer>
+
+</div>
+
+<script src="{{ static_url('js/script.js') }}"></script>
+</body>
+</html>
