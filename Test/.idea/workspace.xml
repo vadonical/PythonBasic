@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63556656-6b9f-409c-9bb3-5c46ec3ff494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/templates/munged.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/.idea/poemmaker.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/poemmaker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../poemmaker/templates/poem.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ComplexTemplates/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
