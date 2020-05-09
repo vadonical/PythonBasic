@@ -1,6 +1,6 @@
+# gomask
 
+一种基于 Golang 的动态脱敏技术，支持大部分的数据库，可用于生产环境。
 
-- This document was modified by vadonical in 2018, and all rights reserved.
+持续更新中...
 
-1111
-222
