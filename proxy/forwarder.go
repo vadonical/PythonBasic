@@ -2,7 +2,6 @@ package proxy
 
 import (
 	"fmt"
-	"gomask/analysis"
 	"gomask/tools"
 	"net"
 	"os"
@@ -23,16 +22,23 @@ func ForwarderStart(local, remote string) {
 			fmt.Println(err)
 		}
 	}()
-
+	fmt.Println(1111)
 	for {
 		proxyConn, err := proxyListener.Accept()
+		fmt.Println(2222)
+		fmt.Println(proxyConn)
 		if err != nil {
 			fmt.Printf("Unable to accept a request, error: %s\n", err.Error())
 			continue
 		}
-
+		fmt.Println(3333)
 		buffer := make([]byte, BuffSize)
+		fmt.Println("3334")
+		fmt.Printf("%v\n", proxyConn)
 		n, err := proxyConn.Read(buffer)
+
+		fmt.Println(4444)
+		fmt.Println(n)
 
 		strBuff := string(buffer[:n])
 		fmt.Printf("NewSSS:\n")
@@ -47,12 +53,13 @@ func ForwarderStart(local, remote string) {
 
 		targetAddr := fmt.Sprintf("%s", remote)
 		targetConn, err := net.Dial("tcp", targetAddr)
+		fmt.Println("bbb", targetConn)
 		if err != nil {
 			fmt.Printf("Unable to connect to: %s, error: %s\n", targetAddr, err.Error())
 			_ = proxyConn.Close()
 			continue
 		}
-
+		fmt.Println("AAA", buffer[:n])
 		n, err = targetConn.Write(buffer[:n])
 		if err != nil {
 			fmt.Printf("Unable to write to output, error: %s\n", err.Error())
@@ -94,11 +101,9 @@ func proxyRequest(r net.Conn, w net.Conn) {
 
 			strBuff := string(buff)
 
-			var stream analysis.Stream
-			buff = stream.Distribute(buff)
-			fmt.Println("res:", buff)
-
-
+			//var stream analysis.Stream
+			//buff = stream.Distribute(buff)
+			//fmt.Println("res:", buff)
 
 			fmt.Println("--------------------vvv------------------")
 			fmt.Println("New:")
@@ -118,5 +123,4 @@ func proxyRequest(r net.Conn, w net.Conn) {
 			break
 		}
 	}
-
 }

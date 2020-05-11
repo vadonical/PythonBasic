@@ -48,7 +48,16 @@ func (s *Stream) Distribute(p []byte) []byte {
 				s.packet = pg.GetPacket(statement)
 			}
 		case 2:
-			fmt.Println("MySQL")
+			fmt.Println("MySQL-----------------------------------")
+			var my mysqlParser
+			sql := my.GetSql(p)
+			fmt.Println("MySQL SQL:", sql)
+			if len(sql) > 0 {
+				sql := replace.Statements[1]
+				fmt.Println("EXECUTE:", sql)
+				s.packet = my.GetPacket(sql)
+			}
+
 		case 3:
 			fmt.Println("Oracle")
 		case 4:
@@ -90,5 +99,5 @@ func (s *Stream) isCheck() bool {
 // 3 Oracle
 // 4 SQLite
 func (s *Stream) determineType() int {
-	return 1
+	return 2
 }

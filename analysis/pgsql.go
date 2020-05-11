@@ -55,7 +55,7 @@ func (p *PgSQLParser) GetSql(packet []byte) string {
 		p.sql = string(p.rSql)
 		return p.sql
 	}
-	log.Fatalln("new protocol not resolved")
+	log.Fatalln("new protocol not resolved in pgsql")
 	return ""
 }
 
@@ -70,13 +70,13 @@ func (p *PgSQLParser) GetPacket(statement string) []byte {
 	return nil
 }
 
-// for dbvis
+// for dbv
 func (p *PgSQLParser) constructOne() []byte {
 	p.sOne = append(p.sOne, p.packet[0])
 	p.sThr = append(p.sThr, p.packet[5])
 	p.sPos = p.packet[len(p.packet)-38:]
 
-	p.lTwo = tools.Number2Bytes(len(p.sql) + 8, 4, false)
+	p.lTwo = tools.Number2Bytes(len(p.sql)+8, 4, false)
 	p.rSql = []byte(p.sql)
 
 	return p.construct()
