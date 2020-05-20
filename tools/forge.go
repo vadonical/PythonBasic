@@ -6,6 +6,16 @@ import (
 	"time"
 )
 
+// 判断数组或切片中是否存在某值，数据类型应一致
+func ArrayContainsInteger(items []int, item int) bool {
+	for _, i := range items {
+		if i == item {
+			return true
+		}
+	}
+	return false
+}
+
 // 判断字符串是否包含在byte切片中
 func ByteContains(s string, subSlice []byte) bool {
 	b := bytes.ToUpper([]byte(s))
@@ -29,7 +39,7 @@ func Number2Bytes(number, length int, reverse bool) []byte {
 	return ReverseBytes(b)
 }
 
-// 反转byte数组
+// 反转byte切片
 func ReverseBytes(b []byte) []byte {
 	for beg, end := 0, len(b)-1; beg < end; beg, end = beg+1, end-1 {
 		b[beg], b[end] = b[end], b[beg]

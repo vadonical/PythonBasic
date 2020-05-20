@@ -2,36 +2,32 @@ package main
 
 import (
 	"fmt"
-	"gomask/proxy"
+	"gomask/transport"
 	"sync"
 )
 
-type Forwarder struct {
-	name   string
-	local  string
-	remote string
+type server struct {
+	name string
+	loc  string
+	rem  string
 }
 
 var wg sync.WaitGroup
 
 func main() {
-	servers := []Forwarder{
-		{"pgsql", "192.168.1.104:35432", "192.168.1.100:5432"},
-		{"oracle", "192.168.1.104:31521", "192.168.1.116:1521"},
-		{"db2", "192.168.1.104:30000", "192.168.1.180:50000"},
-		{"mysql", "192.168.1.104:3311", "192.168.1.100:3306"},
-		{"mariadb", "192.168.1.104:3307", "192.168.1.100:3307"},
-		{"hive", "192.168.1.104:10000", "192.168.1.171:10000"},
-		{"dm", "192.168.1.104:5237", "192.168.1.116:5237"},
-		{"sybase", "192.168.1.104:2638", "192.168.1.107:2638"},
+	servers := []server{
+		{"oracle", "127.0.0.1:21521", "192.168.1.116:1521"},
+		{"pgsql", "127.0.0.1:25432", "192.168.1.102:5432"},
+		{"mysql", "127.0.0.1:23306", "192.168.1.102:3306"},
+		{"db2", "127.0.0.1:20000", "192.168.1.180:50000"},
 	}
-	for _, v := range servers {
-		fmt.Printf("%s: %s ==> %s...\n", v.name, v.local, v.remote)
-		//fmt.Printf("#{v.name}: #{v.local} ==> #{v.remote}")
-		go func(v Forwarder) {
+
+	for _, s := range servers {
+		fmt.Printf("%s: %s ==> %s...\n", s.name, s.loc, s.rem)
+		go func(s server) {
 			wg.Add(1)
-			proxy.ForwarderStart(v.local, v.remote)
-		}(v)
+			transport.Forward(s.loc, s.rem)
+		}(s)
 	}
 	wg.Wait()
 }
