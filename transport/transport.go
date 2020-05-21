@@ -26,6 +26,7 @@ func Forward(locAddr, remAddr string) {
 		if err != nil {
 			fmt.Printf("unable to to accept a request, error: %s\n", err.Error())
 		} else {
+			// 校验是否能够连接
 			fmt.Println("new connect:", locConn.RemoteAddr().String())
 		}
 

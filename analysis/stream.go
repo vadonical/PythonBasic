@@ -10,6 +10,15 @@ import (
 
 var LimitLength = 20
 
+const (
+	Oracle = iota
+	Mysql
+	Postgres
+	SqlServer
+	DB2
+	DM
+)
+
 type Stream struct {
 	conn      net.IPConn
 	packet    []byte
